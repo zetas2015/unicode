@@ -1,7 +1,7 @@
 import "gUnit" as gU
-import "unicodes" as unicodes
+import "unicode" as unicode
 
-def uc = unicodes.unicode
+def uc = unicode.unicode
 
 def unicodesTest = object {
   class forMethod(m) {

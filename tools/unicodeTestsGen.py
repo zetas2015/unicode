@@ -1,7 +1,7 @@
 from unicodegen import get_unicode_records
 import random
 
-TEST_FILE = "unicodesTests.grace"
+TEST_FILE = "unicodeTests.grace"
 TEST_CLASS = "unicodesTest"
 TEST_OBJ = "unicodesTests"
 TEST_SZ = 20
@@ -20,8 +20,8 @@ def write_tests():
 
 def _write_head(fp):
     head = 'import "gUnit" as gU\n'\
-           'import "unicodes" as unicodes\n\n'\
-           'def uc = unicodes.unicode\n\n'\
+           'import "unicode" as unicode\n\n'\
+           'def uc = unicode.unicode\n\n'\
            'def %s = object {\n'\
            '  class forMethod(m) {\n'\
            '    inherits gU.testCaseNamed(m)\n\n'
