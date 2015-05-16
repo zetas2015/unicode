@@ -30,16 +30,12 @@ def _write_head(fp):
 
 def _write_exception_tests(fp):
     test_fmt = '    method test%s {\n'\
-               '      try {\n'\
-               '        %s\n'\
-               '      } catch {\n'\
-               '        e : unicodes.%s -> print "Ok; caught %s exception"\n'\
-               '      }\n    }\n\n'
+               '      assert {%s} shouldRaise (unicodes.%s)\n    }\n\n'
     nsc = 'NoSuchCharacter'
     an = 'AmbiguousName'
-    fp.write(test_fmt % (nsc + '1', 'uc.name(0xFFFFFF)', nsc, nsc))
-    fp.write(test_fmt % (nsc + '2', 'uc.character("I AM NOT A UNICODE")', nsc, nsc))
-    fp.write(test_fmt % (an, 'uc.character("<control>")', an, an))
+    fp.write(test_fmt % (nsc + '1', 'uc.name(0xFFFFFF)', nsc))
+    fp.write(test_fmt % (nsc + '2', 'uc.character("I AM NOT A UNICODE")', nsc))
+    fp.write(test_fmt % (an, 'uc.character("<control>")', an))
 
 
 def _write_tail(fp):
